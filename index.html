@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link href="main.css" type="text/css" rel="stylesheet">
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <h1>File API</h1>
+
+        <p>
+            <label>Multi files selector: </label>
+            <input class="file-loader" type="file" id="files" name="files[]" multiple />
+        </p>
+        <p>
+            <label>Single file selector: </label>
+            <input class="file-loader" type="file" id="file" name="file" />
+        </p>
+        <p>
+            <label>Customize file selector: </label>
+            <a id="fileSelect" href="#">Select image file</a>
+            <input class="file-loader"
+                   id="fileElem"
+                   type="file"
+                   name="file"
+                   style="display: none;"
+                   accept=".png,.jpeg,.gif"/>
+        </p>
+
+        <div id="drop_zone" class="drop-file-zone">Drop files here</div>
+
+        <output id="list"></output>
+
+        <output id="preview"></output>
+
+        <script type="text/javascript" src="main.js">
+
+        </script>
+
+    </body>
+</html>
