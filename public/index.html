@@ -2,9 +2,9 @@
 <html>
 
     <head>
-        <link href="assets/main.css" type="text/css" rel="stylesheet">
+        <link href="main.css" type="text/css" rel="stylesheet">
 
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="jquery.min.js"></script>
     </head>
 
     <body>
@@ -13,14 +13,17 @@
         <p>
             <label>Multi files selector: </label>
             <input class="file-loader" type="file" id="files" name="files[]" multiple />
+            <!-- <input type="button" value="Upload" /> -->
         </p>
         <p>
             <label>Single file selector: </label>
             <input class="file-loader" type="file" id="file" name="file" />
+            <input type="button" class="upload-formdata" value="Upload Single via FormData" />
         </p>
         <p>
             <label>Customize file selector: </label>
             <a id="fileSelect" href="#">Select image file</a>
+            <input type="button" class="upload-formdata" value="Upload Single via FormData" />
             <input class="file-loader"
                    id="fileElem"
                    type="file"
@@ -28,14 +31,18 @@
                    style="display: none;"
                    accept=".png,.jpeg,.gif"/>
         </p>
-
+        <p>
+            <label>Test FileReader: </label>
+            <input class="file-loader" type="file" name="file" />
+            <input type="button" class="" value="Read the file" id="test-file-reader" />
+        </p>
         <div id="drop_zone" class="drop-file-zone">Drop files here</div>
 
         <output id="list"></output>
 
         <output id="preview"></output>
 
-        <script type="text/javascript" src="assets/main.js">
+        <script type="text/javascript" src="main.js">
 
         </script>
 

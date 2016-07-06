@@ -14,3 +14,8 @@ form, div {
   padding: 20px 10px;
   border: 2px blue dashed;
 }
+
+input[type="file"] {
+  padding: 5px;
+  border: 1px dotted black;
+}
