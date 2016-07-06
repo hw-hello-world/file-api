@@ -103,8 +103,8 @@ $(function () {
   }
 
   function addSelectFileEvents() {
-    document.querySelectorAll('.file-loader').forEach(function (elem) {
-      elem.addEventListener('change', handleFileSelect, false);
+    $('.file-loader').map(function () {
+      $(this)[0].addEventListener('change', handleFileSelect, false);
     });
   }
 
