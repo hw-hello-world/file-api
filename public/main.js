@@ -1,4 +1,5 @@
 $(function () {
+
   function handleFileSelect(evt) {
     evt.stopPropagation();
     evt.preventDefault();
@@ -50,6 +51,12 @@ $(function () {
         };
       })(f);
 
+      reader.onprogress = function (e) {
+        if (e.lengthComputable) {
+          var percentage = Math.round((e.loaded * 100) / e.total);
+          console.debug('FileReader in progress', percentage);
+        }
+      };
       // Read in the image file as a data URL.
       reader.readAsDataURL(f);
     }
@@ -83,6 +90,17 @@ $(function () {
     formData.append('userFile', file);
 
     var xhr = new XMLHttpRequest();
+
+    xhr.upload.addEventListener("progress", function(e) {
+      if (e.lengthComputable) {
+        var percentage = Math.round((e.loaded * 100) / e.total);
+        console.debug('upload to server in progress', percentage);
+      }
+    }, false);
+
+    xhr.upload.addEventListener("load", function(e){
+      console.debug('percentage 100%');
+    }, false);
 
     xhr.onreadystatechange = function() {
       if (xhr.readyState == 4 && xhr.status == 200) {
@@ -137,16 +155,11 @@ $(function () {
       var file = $(this).siblings('[type=file]')[0].files[0];
 
       var reader1 = new FileReader(),
-          reader2 = new FileReader(),
           reader3 = new FileReader(),
           reader4 = new FileReader();
 
       reader1.onload = function(evt) {
         console.debug('readAsArrayBuffer():', evt.target.result);
-      };
-      reader2.onload = function(evt) {
-        //console.debug('readAsBinaryString():', evt.target.result);
-        console.debug('readAsBinaryString():', evt.target.result.substr(0, 100));
       };
       reader3.onload = function(evt) {
         console.debug('readAsDataURL():', evt.target.result.substr(0, 100));
@@ -155,22 +168,16 @@ $(function () {
         console.debug('readAsText', evt.target.result.substr(0, 100));
       };
       reader1.readAsArrayBuffer(file);
-      reader2.readAsBinaryString(file);
       reader3.readAsDataURL(file);
       reader4.readAsText(file);
     });
 
   }
 
-
-  function main() {
-    addSelectFileEvents();
-    addDragAndDropEvents();
-    customizeFileSelector();
-    addUploadEvents();
-    testFileReader();
-  }
-
-  main();
-
+  //main
+  addSelectFileEvents();
+  addDragAndDropEvents();
+  customizeFileSelector();
+  addUploadEvents();
+  testFileReader();
 });
