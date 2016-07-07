@@ -19,6 +19,7 @@
   "dependencies": {
     "express": "^4.14.0",
     "fs-extra": "^0.30.0",
+    "jquery": "^1.11.3",
     "multer": "^1.1.0"
   }
 }

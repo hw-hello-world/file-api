@@ -121,9 +121,7 @@ $(function () {
   }
 
   function addSelectFileEvents() {
-    $('.file-loader').map(function () {
-      $(this)[0].addEventListener('change', handleFileSelect, false);
-    });
+    $('.file-loader').on('change', handleFileSelect);
   }
 
   function customizeFileSelector() {
