@@ -8,6 +8,7 @@ var fs = require('fs-extra');
 
 app.use(express.static('public'));
 app.use(express.static('node_modules'));
+app.use(express.static(UPLOAD_DIR));
 
 app.get('/', function (req, res) {
   res.sendfile('index.html' );
@@ -17,8 +18,10 @@ app.post('/upload', upload.single('userFile'), function (req, res, next) {
   console.log(req.file);
   console.log(UPLOAD_DIR + req.file.originalname);
 
-  fs.move(req.file.path,
-          UPLOAD_DIR + req.file.originalname,
+  var src = req.file.path,
+      dest = UPLOAD_DIR + req.file.originalname;
+
+  fs.move(src, dest,
           {clobber: true},
           function (err) {
             if (err) {
@@ -26,7 +29,9 @@ app.post('/upload', upload.single('userFile'), function (req, res, next) {
               res.send(err);
             } else {
               //res.send('ok');
-              res.json({done: 'succeed'});
+              res.json({ imageId: '123',
+                         imageUrl: req.file.originalname
+                       });
             }
           });
 });

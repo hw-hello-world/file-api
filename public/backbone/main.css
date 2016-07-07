@@ -1,0 +1,23 @@
+boday {
+  padding: 30px;
+}
+
+.file-uploader {
+  margin: 10px;
+}
+
+.select-file {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.preview {
+
+}
+
+.preview img {
+  height: 150px;
+  margin: 10px 5px;
+  padding: 5px;
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)
+}
