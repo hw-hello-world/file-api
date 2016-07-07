@@ -91,8 +91,9 @@ var UploadView = Backbone.View.extend({
                       xhr.upload.addEventListener("load", self.onComplete, false);
                       return xhr ;
                     },
-                    // TODO: why disable those settings
+                    // do not convert data to string
                     processData: false,
+                    // to avoid override header content type. particularly for boundary
                     contentType: false
                   };
 
