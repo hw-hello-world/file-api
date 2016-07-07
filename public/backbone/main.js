@@ -111,7 +111,9 @@ var UploadView = Backbone.View.extend({
     console.debug('percentage 100%');
   },
 
-  // TODO: extend this function to handle various file types.
+  /**
+   * @abstract extend this function to handle various file types.
+   */
   previewFileContent: function (resp) {
 
     var previewTpl = _.template('<img src="/<%= imageUrl %>" />');
