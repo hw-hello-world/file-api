@@ -1,5 +1,4 @@
 var ImgUploadModel = Backbone.Model.extend({
-  // {"imageUrl":"/bc/fileStoreRecord?id=fs0oc9yFFETO9HlES0g3","imageId":"fs0oc9yFFETO9HlES0g3"}
 
   url: '/upload',
 
