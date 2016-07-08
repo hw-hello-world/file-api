@@ -5,7 +5,7 @@
 - form must have `enctype=multipart/form-data`
 - create an iframe
 - set `form.target` to the iframe
-- submit the form and will find result in the iframe
+- submit the form and will find result in the iframe. usually listner to iframe.load event.
 
 ## HTML5 File API
 
