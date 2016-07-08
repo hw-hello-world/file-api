@@ -25,7 +25,7 @@
 
 - [Input File type](https://www.w3.org/TR/html-markup/input.file.html)
 - [RFC1867 - Form-based File Upload in HTML](https://www.ietf.org/rfc/rfc1867.txt)
-- [RFC2388 - Returning Values from Forms:  multipart/form-data[(https://www.ietf.org/rfc/rfc2388.txt)
+- [RFC2388 - Returning Values from Forms:  multipart/form-data](https://www.ietf.org/rfc/rfc2388.txt)
 - [W3 - File API](https://www.w3.org/TR/FileAPI/)
 
 ## License
