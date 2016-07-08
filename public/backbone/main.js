@@ -1,13 +1,8 @@
-var UploadModel = Backbone.Model.extend({
-
-  initialize: function (attrs, options) {
-    this.url = options.url;
-  }
-
-});
-
-var ImgUploadModel = UploadModel.extend({
+var ImgUploadModel = Backbone.Model.extend({
   // {"imageUrl":"/bc/fileStoreRecord?id=fs0oc9yFFETO9HlES0g3","imageId":"fs0oc9yFFETO9HlES0g3"}
+
+  url: '/upload',
+
   defaults: {
     imageUrl: '',
     imageId: ''
@@ -21,7 +16,7 @@ var UploadView = Backbone.View.extend({
   },
 
   template: _.template('<label>Customize file selector: </label>' +
-                       '<a class="select-file">Select image file</a>' +
+                       '<a class="select-file">Select an file</a>' +
                        '<input class="file-loader" type="file" name="file" style="display: none;"/>' +
                        '<p class="file-info"></p>'+
                        '<p class="preview"></p>'
@@ -32,13 +27,11 @@ var UploadView = Backbone.View.extend({
     'change .file-loader': 'onFileSelected'
   },
 
-  endpoint: '/upload',
+  UploadModel: null,
 
   fileFieldName: 'userFile',
 
   initialize: function () {
-    this.model = new UploadModel({}, {url: this.endpoint});
-
     _.bindAll(this, 'previewFileContent', 'handleUploadError');
   },
 
@@ -97,6 +90,8 @@ var UploadView = Backbone.View.extend({
                     contentType: false
                   };
 
+    this.model = new this.UploadModel();
+
     return this.model.save({}, options);
   },
 
@@ -135,7 +130,9 @@ var UploadView = Backbone.View.extend({
 
 $(function () {
 
-  var view = new UploadView();
+  var View = UploadView.extend({UploadModel: ImgUploadModel}),
+      view = new View();
+
   view.render();
 
   $('#main-container').html(view.$el);
