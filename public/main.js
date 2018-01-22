@@ -172,10 +172,14 @@ $(function () {
 
   }
 
+  $('#file').on('change', function () {
+    console.log('File Selected: ', arguments);
+  });
+
   //main
   addSelectFileEvents();
-  addDragAndDropEvents();
   customizeFileSelector();
   addUploadEvents();
   testFileReader();
+  addDragAndDropEvents();
 });

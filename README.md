@@ -1,3 +1,9 @@
+## Installation
+
+1. `npm install`
+2. `npm start`
+3. open <http://localhost:4002/>
+
 ## HTML4 File Upload
 
 - create an file tag `<input type="file" name="file" />`
